@@ -1,6 +1,6 @@
 import logging
 
-
+log=logging.getLogger(__name__)
 num_str = some_num.__str__() # [unnecessary-dunder-call]
 num_repr = some_num.__add__(2) # [unnecessary-dunder-call]
 my_repr = my_module.my_object.__repr__() # [unnecessary-dunder-call]
@@ -82,9 +82,11 @@ def test():
     '''
     endstr = '....'
     logging.error("this a logger test:" + str(a))
-    logging.warning("this a logger test:" + str(a) +",end str:" + endstr)
+    logging.warn("this a logger test:" + str(a) +",end str:" + endstr)
+    log.warn('this is warn message')
     logging.info('hello, world:%s'%str(a))
     logging.info('hello, world:%s:%s'%(str(a), endstr))
+    logging.debug('{},{}'.format('first ','sencond'))
     b = B()
     '''this is another pointless string statement'''
     if 1:
@@ -93,7 +95,7 @@ def test():
         '''else pointless string statement'''
         
     try:
-        return Tracer._execute_prepared_user_code(self, statements, expression, global_vars)
+        return Tracer._execute_prepared_user_code(self, statements, expression, global_vars, 'fix return call')
     finally:
         """
         from thonny.misc_utils import _win_get_used_memory
@@ -101,7 +103,13 @@ def test():
         print("States:", len(self._saved_states))
         print(self._fulltags.most_common())
         """
-    
+        btn = Tag(
+            name='button',
+            attrs={'role': 'group', 'data-href': 'command:workbench.extensions.action.showLanguageExtensions', 'onclick': click_event}
+        )
+
+        attrs={'role': 'group', 'data-href': "command:workbench.extensions.action.showLanguageExtensions", 'onclick': click_event}
+        
 
 if __name__ == "__main__":
     a=1
